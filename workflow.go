@@ -5,11 +5,13 @@ import (
 	"fmt"
 )
 
+type Context interface{}
+
 type Workflow struct {
 	StepOrder []string
 	Steps     map[string]*Step
 	OnFailure FailureFunc
-	Context   interface{}
+	Context   Context
 }
 
 func New() *Workflow {

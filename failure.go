@@ -4,10 +4,10 @@ import (
 	"fmt"
 )
 
-type FailureFunc func(err error, step *Step, context interface{}) error
+type FailureFunc func(err error, step *Step, context Context) error
 
 func RetryFailure(tries int) FailureFunc {
-	return func(err error, step *Step, context interface{}) error {
+	return func(err error, step *Step, context Context) error {
 		var currError error
 		for tries > 0 {
 			currError := step.Run(context)
@@ -20,7 +20,7 @@ func RetryFailure(tries int) FailureFunc {
 	}
 }
 
-func InteractiveFailure(err error, step *Step, context interface{}) error {
+func InteractiveFailure(err error, step *Step, context Context) error {
 	fmt.Println(err)
 	fmt.Printf("Step %s failed. Press ENTER to retry or C-c to quit.\n", step.Label)
 	fmt.Scanln()
