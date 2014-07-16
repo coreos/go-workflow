@@ -1,6 +1,8 @@
 go-workflow
 -----------
 
+[![Build Status](https://travis-ci.org/colegleason/go-workflow.svg?branch=master)](https://travis-ci.org/colegleason/go-workflow)
+
 Simple control flow library to setup a series of steps to execute.
 
 Example
