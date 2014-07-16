@@ -1,7 +1,7 @@
 go-workflow
 -----------
 
-Simnple library to setup a series of steps to execute.
+Simple control flow library to setup a series of steps to execute.
 
 Example
 -------
