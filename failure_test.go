@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/colegleason/go-workflow"
+	"github.com/coreos/go-workflow"
 )
 
 func TestFailureFunc(t *testing.T) {
