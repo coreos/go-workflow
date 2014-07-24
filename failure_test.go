@@ -15,12 +15,12 @@ func TestFailureFunc(t *testing.T) {
 		testVar = true
 		return nil
 	}
-	w.AddStep(&workflow.Step{
+	w.Start = &workflow.Step{
 		Label: "fail workflow",
 		Run: func(c workflow.Context) error {
 			return errors.New("generic error")
 		},
-	})
+	}
 
 	err := w.Run()
 	if err != nil {
