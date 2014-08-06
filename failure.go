@@ -28,7 +28,7 @@ func RetryFailure(tries int) FailureFunc {
 
 func InteractiveFailure(err error, step *Step, context Context) error {
 	fmt.Fprintln(os.Stderr, err)
-	fmt.Fprintf(os.Stderr, "Step %s failed. Press r to retry, s to skip, or C-c to quit.\n", step.Label)
+	fmt.Fprintf(os.Stdout, "Step %s failed. Press r to retry, s to skip, or C-c to quit.\n", step.Label)
 	for {
 		var action string
 		_, err := fmt.Fscanln(InputFile, &action)
@@ -47,6 +47,6 @@ func InteractiveFailure(err error, step *Step, context Context) error {
 		case "s":
 			return nil
 		}
-		fmt.Fprintf(os.Stderr, "Invalid action '%s'. Valid actions=[r,s]\n", action)
+		fmt.Fprintf(os.Stdout, "Invalid action '%s'. Valid actions=[r,s]\n", action)
 	}
 }
