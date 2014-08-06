@@ -3,7 +3,7 @@ package workflow_test
 import (
 	"testing"
 
-	"github.com/colegleason/go-workflow"
+	"github.com/coreos/go-workflow"
 )
 
 func TestBasicWorkflow(t *testing.T) {
