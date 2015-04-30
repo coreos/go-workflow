@@ -39,21 +39,21 @@ func TestInteractiveFailure(t *testing.T) {
 
 	w := workflow.New()
 	w.OnFailure = workflow.InteractiveFailure
-	w.AddSteps([]*workflow.Step{
-		&workflow.Step{
-			Label: "fail workflow",
-			Run: func(c workflow.Context) error {
-				return errors.New("generic error")
+	w.Start = &workflow.Step{
+		Label: "fail workflow",
+		Run: func(c workflow.Context) error {
+			return errors.New("generic error")
+		},
+		DependsOn: []*workflow.Step{
+			&workflow.Step{
+				Label: "succeed workflow",
+				Run: func(c workflow.Context) error {
+					testVar = true
+					return nil
+				},
 			},
 		},
-		&workflow.Step{
-			Label: "succeed workflow",
-			Run: func(c workflow.Context) error {
-				testVar = true
-				return nil
-			},
-		},
-	})
+	}
 
 	err := w.Run()
 	if err != nil {
