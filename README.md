@@ -1,7 +1,8 @@
 go-workflow
 -----------
 
-[![Build Status](https://travis-ci.org/colegleason/go-workflow.svg?branch=master)](https://travis-ci.org/coreos/go-workflow)
+[![deprecated](http://badges.github.io/stability-badges/dist/deprecated.svg)](http://github.com/badges/stability-badges)
+
 
 Simple control flow library to setup a series of steps to execute.
 
